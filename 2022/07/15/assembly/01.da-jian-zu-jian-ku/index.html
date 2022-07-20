@@ -5,10 +5,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="使用Vite和TypeScript带你从零打造一个属于自己的Vue3组件库, 夏。">
-    <meta name="description" content="本文将使用Vue3和TypeScript来编写一个组件库，使用Vite+Vue3来对这个组件库中的组件进行调试，最后使用vite来对组件库进行打包并且发布到npm上。最终的产物是一个名为sy-ui的组件库
+    <meta name="description" content="本文将使用Vue3和TypeScript来编写一个组件库，使用Vite+Vue3来对这个组件库中的组件进行调试，最后使用vite来对组件库进行打包并且发布到npm上。最终的产物是一个名为liusy-ui的组件库
 读完这篇文章你将学会：
 
-如何使用">
+如">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -460,7 +460,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>本文将使用Vue3和TypeScript来编写一个组件库，使用Vite+Vue3来对这个组件库中的组件进行调试，最后使用vite来对组件库进行打包并且发布到npm上。最终的产物是一个名为sy-ui的组件库</p>
+                <p>本文将使用Vue3和TypeScript来编写一个组件库，使用Vite+Vue3来对这个组件库中的组件进行调试，最后使用vite来对组件库进行打包并且发布到npm上。最终的产物是一个名为liusy-ui的组件库</p>
 <p>读完这篇文章你将学会：</p>
 <ul>
 <li>如何使用pnpm搭建出一个menorepo环境</li>
@@ -582,9 +582,9 @@ app<span class="token punctuation">.</span><span class="token function">mount</s
 <p>vite启动默认端口为3000；在浏览器中打开localhost:3000 就会看我们的“启动测试”页面。</p>
 <h2 id="本地调试"><a href="#本地调试" class="headerlink" title="本地调试"></a>本地调试</h2><h3 id="新建包文件"><a href="#新建包文件" class="headerlink" title="新建包文件"></a>新建包文件</h3><p>本节可能和目前组件的开发关联不大，但是未来组件需要引入一些工具方法的时候会用到。</p>
 <p>接下来就是要往我们的packages文件夹冲填充内容了。</p>
-<h5 id="utils包"><a href="#utils包" class="headerlink" title="utils包"></a>utils包</h5><p>一般packages要有utils包来存放我们公共方法，工具函数等<br>既然它是一个包，所以我们新建utils目录后就需要初始化它，让它变成一个包；终端进入utils文件夹执行：pnpm init 然后会生成一个package.json文件；这里需要改一下包名，我这里将name改成@sy-ui/utils表示这个utils包是属于sy-ui这个组织下的。所以记住发布之前要登录npm新建一个组织；例如sy-ui</p>
+<h5 id="utils包"><a href="#utils包" class="headerlink" title="utils包"></a>utils包</h5><p>一般packages要有utils包来存放我们公共方法，工具函数等<br>既然它是一个包，所以我们新建utils目录后就需要初始化它，让它变成一个包；终端进入utils文件夹执行：pnpm init 然后会生成一个package.json文件；这里需要改一下包名，我这里将name改成@liusy-ui/utils表示这个utils包是属于liusy-ui这个组织下的。所以记住发布之前要登录npm新建一个组织；例如liusy-ui</p>
 <pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">{</span>
-  <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"@sy-ui/utils"</span><span class="token punctuation">,</span>
+  <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"@liusy-ui/utils"</span><span class="token punctuation">,</span>
   <span class="token property">"version"</span><span class="token operator">:</span> <span class="token string">"1.0.0"</span><span class="token punctuation">,</span>
   <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">,</span>
   <span class="token property">"main"</span><span class="token operator">:</span> <span class="token string">"index.ts"</span><span class="token punctuation">,</span>
@@ -601,10 +601,10 @@ app<span class="token punctuation">.</span><span class="token function">mount</s
     <span class="token keyword">return</span> a <span class="token operator">+</span> b
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<h5 id="组件库包-这里命名为sy-ui"><a href="#组件库包-这里命名为sy-ui" class="headerlink" title="组件库包(这里命名为sy-ui)"></a>组件库包(这里命名为sy-ui)</h5><p>components是我们用来存放各种UI组件的包</p>
+<h5 id="组件库包-这里命名为liusy-ui"><a href="#组件库包-这里命名为liusy-ui" class="headerlink" title="组件库包(这里命名为liusy-ui)"></a>组件库包(这里命名为liusy-ui)</h5><p>components是我们用来存放各种UI组件的包</p>
 <p>新建components文件夹并执行 pnpm init 生成package.json</p>
 <pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">{</span>
-  <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"sy-ui"</span><span class="token punctuation">,</span>
+  <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"liusy-ui"</span><span class="token punctuation">,</span>
   <span class="token property">"version"</span><span class="token operator">:</span> <span class="token string">"1.0.0"</span><span class="token punctuation">,</span>
   <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">,</span>
   <span class="token property">"main"</span><span class="token operator">:</span> <span class="token string">"index.ts"</span><span class="token punctuation">,</span>
@@ -617,7 +617,7 @@ app<span class="token punctuation">.</span><span class="token function">mount</s
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>新建index.ts入口文件并引入utils包</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span>testfun<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@sy-ui/utils'</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span>testfun<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@liusy-ui/utils'</span>
 
 <span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token function">testfun</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>
 
@@ -628,11 +628,11 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <pre class="line-numbers language-vim" data-language="vim"><code class="language-vim">npm i esno <span class="token operator">-</span>g<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h3 id="包之间本地调试"><a href="#包之间本地调试" class="headerlink" title="包之间本地调试"></a>包之间本地调试</h3><p>进入components文件夹执行</p>
-<pre class="line-numbers language-vim" data-language="vim"><code class="language-vim">pnpm install @sy<span class="token operator">-</span>ui<span class="token operator">/</span>utils<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-vim" data-language="vim"><code class="language-vim">pnpm install @liusy<span class="token operator">-</span>ui<span class="token operator">/</span>utils<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>你会发现pnpm会自动创建个软链接直接指向我们的utils包；此时components下的packages：</p>
 <pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">{</span>
-  <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"sy-ui"</span><span class="token punctuation">,</span>
+  <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"liusy-ui"</span><span class="token punctuation">,</span>
   <span class="token property">"version"</span><span class="token operator">:</span> <span class="token string">"1.0.0"</span><span class="token punctuation">,</span>
   <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">,</span>
   <span class="token property">"main"</span><span class="token operator">:</span> <span class="token string">"src/index.ts"</span><span class="token punctuation">,</span>
@@ -643,11 +643,11 @@ console<span class="token punctuation">.</span><span class="token function">log<
   <span class="token property">"author"</span><span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">,</span>
   <span class="token property">"license"</span><span class="token operator">:</span> <span class="token string">"ISC"</span><span class="token punctuation">,</span>
   <span class="token property">"dependencies"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-    <span class="token property">"@sy-ui/utils"</span><span class="token operator">:</span> <span class="token string">"workspace:^1.0.1"</span>
+    <span class="token property">"@liusy-ui/utils"</span><span class="token operator">:</span> <span class="token string">"workspace:^1.0.1"</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>你会发现它的依赖@sy-ui/utils对应的版本为：workspace:^1.0.0；因为pnpm是由workspace管理的，所以有一个前缀workspace可以指向utils下的工作空间从而方便本地调试各个包直接的关联引用。</p>
+<p>你会发现它的依赖@liusy-ui/utils对应的版本为：workspace:^1.0.0；因为pnpm是由workspace管理的，所以有一个前缀workspace可以指向utils下的工作空间从而方便本地调试各个包直接的关联引用。</p>
 <p>到这里基本开发方法我们已经知道啦；接下来就要进入正题了，开发一个button组件</p>
 <h2 id="试着开发一个button组件"><a href="#试着开发一个button组件" class="headerlink" title="试着开发一个button组件"></a>试着开发一个button组件</h2><p>在components文件夹下新建src,同时在src下新建button组件目录和icon组件目录(新建icon为了便于调试);此时components文件目录如下</p>
 <pre class="line-numbers language-none"><code class="language-none">-- components
@@ -677,9 +677,9 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 <p>好了，一个组件的大体目录差不多就是这样了，接下来请进入我们的examples来看看能否引入我们的button组件</p>
 <h2 id="vue3项目使用button"><a href="#vue3项目使用button" class="headerlink" title="vue3项目使用button"></a>vue3项目使用button</h2><p>上面已经说过执行在workspace执行 pnpm i xxx的时候pnpm会自动创建个软链接直接指向我们的xxx包。</p>
-<p>所以这里我们直接在examples执行：pnpm i sy-ui</p>
+<p>所以这里我们直接在examples执行：pnpm i liusy-ui</p>
 <p>此时你就会发现packages.json的依赖多了个</p>
-<pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token property">"sy-ui"</span><span class="token operator">:</span> <span class="token string">"workspace:^1.0.0"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token property">"liusy-ui"</span><span class="token operator">:</span> <span class="token string">"workspace:^1.0.0"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>这时候我们就能直接在我们的测试项目下引入我们本地的components组件库了，启动我们的测试项目，来到我们的 examples/app.vue 直接引入Button</p>
 <pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
@@ -688,7 +688,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ts<span class="token punctuation">"</span></span> <span class="token attr-name">setup</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
-<span class="token keyword">import</span> <span class="token punctuation">{</span> Button <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'sy-ui'</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Button <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'liusy-ui'</span>
 </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>不出意外的话你的页面就会展示我们刚刚写的button组件了</p>
 <p>好了万事具…(其实还差个打包，这个后面再说~)；接下来的工作就是专注于组件的开发了；让我们回到我们的button组件目录下（测试页面不用关，此时我们已经可以边开发边调试边看效果了）</p>
@@ -821,7 +821,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <p>然后执行打包命令你就会发现你的es和lib下就有了声明文件</p>
 <p>其实后面就可以进行发布了，发布之前更改一下我们components下的package.json如下：</p>
 <pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">{</span>
-  <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"sy-ui"</span><span class="token punctuation">,</span>
+  <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"liusy-ui"</span><span class="token punctuation">,</span>
   <span class="token property">"version"</span><span class="token operator">:</span> <span class="token string">"1.0.0"</span><span class="token punctuation">,</span>
   <span class="token property">"main"</span><span class="token operator">:</span> <span class="token string">"lib/index.js"</span><span class="token punctuation">,</span>
   <span class="token property">"module"</span><span class="token operator">:</span><span class="token string">"es/index.js"</span><span class="token punctuation">,</span>
@@ -833,7 +833,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
     <span class="token string">"lib"</span>
   <span class="token punctuation">]</span><span class="token punctuation">,</span>
   <span class="token property">"keywords"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
-    <span class="token string">"sy-ui"</span><span class="token punctuation">,</span>
+    <span class="token string">"liusy-ui"</span><span class="token punctuation">,</span>
     <span class="token string">"vue3组件库"</span>
   <span class="token punctuation">]</span><span class="token punctuation">,</span>
   <span class="token property">"author"</span><span class="token operator">:</span> <span class="token string">"夏"</span><span class="token punctuation">,</span>
@@ -846,17 +846,17 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <p>我们组件库默认入口文件是传统的CommonJS模块，但是如果你的环境支持ESModule的话，构建工具会优先使用我们的module入口</p>
 <p><em>pkg.files</em></p>
 <p>files是指我们1需要发布到npm上的目录，因为不可能components下的所有目录都被发布上去</p>
-<h2 id="开始发布"><a href="#开始发布" class="headerlink" title="开始发布"></a>开始发布</h2><p>做了那么多终于到发布的阶段了；其实npm发包是很容易的，就拿我们的组件库sy-ui举例吧</p>
-<p>发布之前记得到npm官网注册个账户,如果你要发布@xx/xx这种包的话需要在npm新建个组织组织组织名就是@后面的，比如我建的组织就是sy-ui,注册完之后你就可以发布了</p>
+<h2 id="开始发布"><a href="#开始发布" class="headerlink" title="开始发布"></a>开始发布</h2><p>做了那么多终于到发布的阶段了；其实npm发包是很容易的，就拿我们的组件库liusy-ui举例吧</p>
+<p>发布之前记得到npm官网注册个账户,如果你要发布@xx/xx这种包的话需要在npm新建个组织组织组织名就是@后面的，比如我建的组织就是liusy-ui,注册完之后你就可以发布了</p>
 <p>首先要将我们代码提交到git仓库，不然pnpm发布无法通过，后面每次发版记得在对应包下执行 pnpm version patch你就会发现这个包的版本号patch(版本号第三个数) +1 了，同样的 pnpm version major major和 pnpm version minor 分别对应版本号的第一和第二位增加。</p>
 <p>如果你发布的是公共包的话，在对应包下执行</p>
 <pre class="line-numbers language-vim" data-language="vim"><code class="language-vim">pnpm publish <span class="token operator">-</span><span class="token operator">-</span>access public<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>输入你的账户和密码（记得输入密码的时候是不显示的，不要以为卡了）正常情况下应该是发布成功了</p>
 <p><em>注意</em></p>
-<p>发布的时候要将npm的源切换到npm的官方地址(registry.npmjs.org/); 如果你使用了其它镜像源的话</p>
+<p>发布的时候要将npm的源切换到npm的官方地址(registry.npmjs.org/); 如果你使用了其它镜像源的话会发布不上去；</p>
 <h2 id="样式问题"><a href="#样式问题" class="headerlink" title="样式问题"></a>样式问题</h2><p>引入我们打包后的组件你会发现没有样式，所以你需要在全局引入我们的style.css才行；如 main.ts中需要</p>
-<pre class="line-numbers language-typescript" data-language="typescript"><code class="language-typescript"><span class="token keyword">import</span> <span class="token string">'sy-ui/es/style.css'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-typescript" data-language="typescript"><code class="language-typescript"><span class="token keyword">import</span> <span class="token string">'liusy-ui/es/style.css'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>很显然这种组件库并不是我们想要的，我们需要的组件库是每个css样式放在每个组件其对应目录下，这样就不需要每次都全量导入我们的css样式。</p>
 <p>下面就让我们来看下如何把样式拆分打包</p>

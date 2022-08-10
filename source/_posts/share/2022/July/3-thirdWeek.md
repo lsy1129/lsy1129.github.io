@@ -111,9 +111,11 @@ console.log(arr.at(-1)) // 5
 
 ##### >>> 仅对 css 有效，对于 css 预处理语言，例如 scss、less 不生效。
 
-对于 vue 中 div#app 节点外的元素样式，如果 '' 加上了 scoped，那么此时样式穿透符是不能穿透修改 div#app 节点外的元素样式的。
+对于 vue 中 div#app 节点外的元素样式，如果 'style' 加上了 scoped，那么此时样式穿透符是不能穿透修改 div#app 节点外的元素样式的。
 这是因为 scoped 的作用域仅局限在 div#app 容器内部，所以此时只能修改 div#app 容器内的样式。
-例如 el 组件的下拉选的弹出层是 div#app 的兄弟元素，body的子元素，在 '' 中使用样式穿透符修改该弹出层的样式是无效的。
+例如 el 组件的下拉选的弹出层是 div#app 的兄弟元素，body的子元素，在 'style' 中使用样式穿透符修改该弹出层的样式是无效的。
+
+> the >>> and /deep/ combinators have been deprecated. Use :deep() instead
 
 ## 2022/07/22分享
 

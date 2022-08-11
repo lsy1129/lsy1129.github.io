@@ -106,3 +106,13 @@ export default Son;
 {% asset_img 1.png %}
 
 {% asset_img 2.png %}
+
+## 2022/08/11分享
+
+Typtscript内置类型定义、泛型，可直接使用：
+
+{% asset_img 3.png %}
+
+更多内容：[可能是你需要的 React + TypeScript 50 条规范和经验 - 掘金 (juejin.cn)](https://juejin.cn/post/6844903849166110728)
+
+PS：图中第三条Readonly的demo有错误（Todo=> iPeople）

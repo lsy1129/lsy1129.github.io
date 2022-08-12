@@ -205,3 +205,174 @@ anticlockwise接收以个Boolean类型的数值，为 true 时，是逆时针方
     </script>
 </body>
 ~~~
+
+### 二次贝塞尔曲线及三次贝塞尔曲线
+
+二次贝塞尔曲线及三次贝塞尔曲线一般用来绘制复杂有规律的图形
+
+- quadraticCurveTo(cp1x, cp1y, x, y)
+  - 绘制二次贝塞尔曲线，cp1x,cp1y为一个控制点，x,y为结束点。
+- bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y)
+  - 绘制三次贝塞尔曲线，cp1x,cp1y为控制点一，cp2x,cp2y为控制点二，x,y为结束点。
+
+{% asset_img 7.png %}
+
+#### 二次贝塞尔曲线
+
+使用多个贝塞尔曲线来渲染对话气泡。
+
+{% asset_img 8.png %}
+
+~~~ html
+<body>
+    <canvas id="lsyCanvas" width="150" height="150"></canvas>
+    <script>
+        const contextCanvas = document.getElementById('lsyCanvas');
+        if(contextCanvas.getContext) {
+            const cxt = contextCanvas.getContext('2d')
+
+            // 二次贝塞尔曲线
+            cxt.beginPath()
+            cxt.moveTo(75, 25);
+            cxt.quadraticCurveTo(25,25,25,62.5)
+            cxt.quadraticCurveTo(25, 100, 50, 100);
+            cxt.quadraticCurveTo(60, 110, 30, 125);
+            cxt.quadraticCurveTo(70, 110, 65, 100);
+            cxt.quadraticCurveTo(125, 100, 125, 62.5);
+            cxt.quadraticCurveTo(125, 25, 75, 25);
+            cxt.stroke();
+        }
+    </script>
+</body>
+~~~
+
+#### 三次贝塞尔曲线
+
+使用贝塞尔曲线绘制心形.
+
+{% asset_img 9.png %}
+
+~~~ html
+<body>
+    <canvas id="lsyCanvas" width="150" height="150"></canvas>
+    <script>
+        const contextCanvas = document.getElementById('lsyCanvas');
+        if(contextCanvas.getContext) {
+            const cxt = contextCanvas.getContext('2d')
+
+            // 三次贝塞尔曲线
+            cxt.beginPath();
+            cxt.moveTo(75, 40);
+            cxt.bezierCurveTo(75, 37, 70, 25, 50, 25);
+            cxt.bezierCurveTo(20, 25, 20, 62.5, 20, 62.5);
+            cxt.bezierCurveTo(20, 80, 40, 102, 75, 120);
+            cxt.bezierCurveTo(110, 102, 130, 80, 130, 62.5);
+            cxt.bezierCurveTo(130, 62.5, 130, 25, 100, 25);
+            cxt.bezierCurveTo(85, 25, 75, 37, 75, 40);
+            cxt.fill();
+        }
+    </script>
+</body>
+~~~
+
+### 矩形
+
+rect(x, y, width, height)
+绘制一个左上角坐标为（x,y），宽高为 width 以及 height 的矩形。
+
+{% asset_img 10.png %}
+
+~~~ html
+<body>
+    <canvas id="lsyCanvas" width="150" height="150"></canvas>
+    <script>
+        const contextCanvas = document.getElementById('lsyCanvas')
+        if(contextCanvas.getContext) {
+            const cxt = contextCanvas.getContext('2d');
+             cxt.beginPath();
+             cxt.rect(25,25,100,50)
+             cxt.stroke()
+        }
+    </script>
+</body>
+~~~
+
+## 使用样式和颜色
+
+### 色彩
+
+给图形上色，有两个重要的属性：fillStyle 和 strokeStyle
+
+1. fillStyle = color 设置图形填充的颜色
+2. strokeStyle = color 设置图形轮廓的颜色
+
+color 可以是表示 CSS 颜色值的字符串，渐变对象或者图案对象。默认情况下，线条和填充颜色都是黑色（CSS 颜色值 #000000）。
+
+#### fillStyle示例
+
+{% asset_img 11.png %}
+
+~~~ html
+<canvas id="lsyCanvas" width="150" height="150"></canvas>
+<script>
+    const cxt = document.getElementById('lsyCanvas').getContext('2d');
+    for(let i = 0;i<7;i++) {
+        for(let j=0; j<7; j++) {
+            cxt.fillStyle = 'rgb(' + Math.floor(255-42.5*i) + ',' +
+                    Math.floor(255-42.5*j) + ',0)';
+            cxt.fillRect(j*25,i*25,25,25);
+        }
+    }
+</script>
+~~~
+
+#### strokeStyle示例
+
+{% asset_img 12.png %}
+
+~~~ html
+<canvas id="lsyCanvas" width="150" height="150"></canvas>
+<script>
+    const cxt = document.getElementById('lsyCanvas').getContext('2d');
+    for(let i = 0;i<7;i++) {
+        for(let j=0; j<7; j++) {
+            cxt.strokeStyle = 'rgb(0,' + Math.floor(255-42.5*i) + ',' +
+                    Math.floor(255-42.5*j) + ')';
+            cxt.beginPath();
+            cxt.arc(12.5+j*25,12.5+i*25,10,0,Math.PI * 2, true)
+            cxt.stroke();
+        }
+    }
+</script>
+~~~
+
+### 线形
+
+可以通过一系列属性来设置线的样式
+
+#### lineWidth
+
+> lineWidth = value 设置线条的宽度
+> 这个属性设置当前绘线的粗细。属性值必须为正数。默认值是 1.0
+
+{% asset_img 13.png %}
+
+~~~ html
+<canvas id="lsyCanvas" width="400" height="150"></canvas>
+<script>
+    const cxt = document.getElementById('lsyCanvas').getContext('2d')
+    for(let i=0; i< 11;i++) {
+        cxt.lineWidth = i+1;
+        cxt.beginPath()
+        cxt.moveTo(5+i*20,5);
+        cxt.lineTo(5+i*20,130)
+        cxt.stroke()
+    }
+</script>
+~~~
+
+#### lineCap
+
+> lineCap = type 设置线条末端样式。
+> 属性 lineCap 的值决定了线段端点显示的样子。它可以为下面的三种的其中之一：butt，round 和 square。默认是 butt。
+

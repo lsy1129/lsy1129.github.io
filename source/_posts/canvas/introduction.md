@@ -375,4 +375,138 @@ color 可以是表示 CSS 颜色值的字符串，渐变对象或者图案对象
 
 > lineCap = type 设置线条末端样式。
 > 属性 lineCap 的值决定了线段端点显示的样子。它可以为下面的三种的其中之一：butt，round 和 square。默认是 butt。
+> 最左边的线用了默认的 butt 。可以注意到它是与辅助线齐平的。中间的是 round 的效果，端点处加上了半径为一半线宽的半圆。右边的是 square 的效果，端点处加上了等宽且高度为一半线宽的方块。
 
+{% asset_img 14.png %}
+
+~~~ html
+<canvas id="lsyCanvas" width="400" height="150"></canvas>
+<script>
+    const cxt = document.getElementById('lsyCanvas').getContext('2d')
+    const lineCap = ['butt','round','square'];
+
+    // 绘制辅助线
+    cxt.strokeStyle='#09f';
+    cxt.beginPath();
+    cxt.moveTo(10,10);
+    cxt.lineTo(140,10);
+    cxt.moveTo(10,140);
+    cxt.lineTo(140,140);
+    cxt.stroke();
+
+    // 画线条
+    cxt.strokeStyle = 'black';
+    for (let i=0;i<lineCap.length;i++){
+        cxt.lineWidth = 15;
+        cxt.lineCap = lineCap[i];
+        cxt.beginPath();
+        cxt.moveTo(25+i*50,10);
+        cxt.lineTo(25+i*50,140);
+        cxt.stroke();
+    }
+</script>
+~~~
+
+#### lineJoin
+
+> lineJoin = type  设定线条与线条间接合处的样式。
+> lineJoin 的属性值决定了图形中两线段连接处所显示的样子。它可以是这三种之一：round, bevel 和 miter。默认是 miter。
+> 1. round：边角处被磨圆了，圆的半径等于线宽。
+> 2. 当值是 miter 的时候，线段会在连接处外侧延伸直至交于一点，延伸效果受到 miterLimit 属性的制约。
+
+{% asset_img 15.png %}
+
+~~~ html
+<canvas id="lsyCanvas" width="400" height="150"></canvas>
+<script>
+    const cxt = document.getElementById('lsyCanvas').getContext('2d')
+    const lineJoin = ['round', 'bevel', 'miter'];
+
+    cxt.lineWidth = 10;
+    for (var i = 0; i < lineJoin.length; i++) {
+        cxt.lineJoin = lineJoin[i];
+        cxt.beginPath();
+        cxt.moveTo(-5, 5 + i * 40);
+        cxt.lineTo(35, 45 + i * 40);
+        cxt.lineTo(75, 5 + i * 40);
+        cxt.lineTo(115, 45 + i * 40);
+        cxt.lineTo(155, 5 + i * 40);
+        cxt.stroke();
+    }
+</script>
+~~~
+
+### 渐变
+
+> createLinearGradient(x1, y1, x2, y2)  createLinearGradient 方法接受 4 个参数，表示渐变的起点 (x1,y1) 与终点 (x2,y2)。
+> createRadialGradient(x1, y1, r1, x2, y2, r2)  createRadialGradient 方法接受 6 个参数，前三个定义一个以 (x1,y1) 为原点，半径为 r1 的圆，后三个参数则定义另一个以 (x2,y2) 为原点，半径为 r2 的圆。
+> gradient.addColorStop(position, color) addColorStop 方法接受 2 个参数，position 参数必须是一个 0.0 与 1.0 之间的数值，表示渐变中颜色所在的相对位置。例如，0.5 表示颜色会出现在正中间。color 参数必须是一个有效的 CSS 颜色值（如 #FFF，rgba(0,0,0,1)，等等）
+
+#### createLinearGradient属性
+
+{% asset_img 16.png %}
+
+~~~ html
+<canvas id="lsyCanvas" width="400" height="150"></canvas>
+<script>
+    const cxt = document.getElementById('lsyCanvas').getContext('2d')
+    
+    const lingrad = cxt.createLinearGradient(0,0,0,150);
+    lingrad.addColorStop(0, '#00ABEB');
+    lingrad.addColorStop(0.5, '#fff');
+    lingrad.addColorStop(0.5, '#26C000');
+    lingrad.addColorStop(1, '#fff');
+
+    const lingrad2 = cxt.createLinearGradient(0,50,0,95);
+    lingrad2.addColorStop(0.5, '#000');
+    lingrad2.addColorStop(1, 'rgba(0,0,0,0)');
+
+    cxt.fillStyle = lingrad;
+    cxt.strokeStyle = lingrad2;
+
+    cxt.fillRect(10,10,130,130);
+    cxt.strokeRect(50,50,50,50);
+</script>
+~~~
+
+#### createRadialGradient属性
+
+{% asset_img 17.png %}
+
+~~~ html
+<canvas id="lsyCanvas" width="400" height="150"></canvas>
+<script>
+    const cxt = document.getElementById('lsyCanvas').getContext('2d')
+    
+    // 创建渐变
+    var radgrad = cxt.createRadialGradient(45,45,10,52,50,30);
+    radgrad.addColorStop(0, '#A7D30C');
+    radgrad.addColorStop(0.9, '#019F62');
+    radgrad.addColorStop(1, 'rgba(1,159,98,0)');
+
+    var radgrad2 = cxt.createRadialGradient(105,105,20,112,120,50);
+    radgrad2.addColorStop(0, '#FF5F98');
+    radgrad2.addColorStop(0.75, '#FF0188');
+    radgrad2.addColorStop(1, 'rgba(255,1,136,0)');
+
+    var radgrad3 = cxt.createRadialGradient(95,15,15,102,20,40);
+    radgrad3.addColorStop(0, '#00C9FF');
+    radgrad3.addColorStop(0.8, '#00B5E2');
+    radgrad3.addColorStop(1, 'rgba(0,201,255,0)');
+
+    var radgrad4 = cxt.createRadialGradient(0,150,50,0,140,90);
+    radgrad4.addColorStop(0, '#F4F201');
+    radgrad4.addColorStop(0.8, '#E4C700');
+    radgrad4.addColorStop(1, 'rgba(228,199,0,0)');
+
+    // 画图形
+    cxt.fillStyle = radgrad4;
+    cxt.fillRect(0,0,150,150);
+    cxt.fillStyle = radgrad3;
+    cxt.fillRect(0,0,150,150);
+    cxt.fillStyle = radgrad2;
+    cxt.fillRect(0,0,150,150);
+    cxt.fillStyle = radgrad;
+    cxt.fillRect(0,0,150,150);
+</script>
+~~~

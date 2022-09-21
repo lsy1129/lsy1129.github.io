@@ -474,6 +474,9 @@ windows下解压tar.gz文件
 </blockquote>
 <h2 id="拉取远端指定分支并在本地新建分支"><a href="#拉取远端指定分支并在本地新建分支" class="headerlink" title="拉取远端指定分支并在本地新建分支"></a>拉取远端指定分支并在本地新建分支</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> checkout -b 本地分支 origin/远程分支<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
+<h2 id="git修改分支名"><a href="#git修改分支名" class="headerlink" title="git修改分支名"></a>git修改分支名</h2><p>1、修改本地分支名称<br>git branch -m oldBranchName newBranchName</p>
+<p>2、将本地分支的远程分支删除<br>git push origin :oldBranchName</p>
+<p>3、将改名后的本地分支推送到远程，并将本地分支与之关联<br>git push –set-upstream origin newBranchName</p>
 
                 
             </div>

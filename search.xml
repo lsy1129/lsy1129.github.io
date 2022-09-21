@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Learn git branch</title>
+      <link href="/lsyBlog/2022/09/19/gitcommand/gitcommand/"/>
+      <url>/lsyBlog/2022/09/19/gitcommand/gitcommand/</url>
+      
+        <content type="html"><![CDATA[<h2 id="基础篇"><a href="#基础篇" class="headerlink" title="基础篇"></a>基础篇</h2><h3 id="git-commit"><a href="#git-commit" class="headerlink" title="git commit"></a>git commit</h3><p>Git 仓库中的提交记录保存的是你的目录下所有文件的快照，就像是把整个目录复制，然后再粘贴一样，但比复制粘贴优雅许多！</p><h3 id="git-branch"><a href="#git-branch" class="headerlink" title="git branch"></a>git branch</h3><ol><li>用 ‘git branch &lt;分支名&gt;’ 来创建分支，用 ‘git checkout &lt;分支名&gt;’ 来切换到分支</li><li>‘git checkout -b &lt;分支名&gt;’ 直接创建并切换到新分支</li></ol><h3 id="git-merge-分支与合并"><a href="#git-merge-分支与合并" class="headerlink" title="git merge(分支与合并)"></a>git merge(分支与合并)</h3><p>将两个分支合并到一起。就是说我们新建一个分支，在其上开发某个新功能，开发完成后再合并回主线。</p><p>在 Git 中合并两个分支时会产生一个特殊的提交记录，它有两个父节点。翻译成自然语言相当于：“我要把这两个父节点本身及它们所有的祖先都包含进来。”</p><h3 id="git-rebase"><a href="#git-rebase" class="headerlink" title="git rebase"></a>git rebase</h3><p>Rebase 实际上就是取出一系列的提交记录，“复制”它们，然后在另外一个地方逐个的放下去。</p><p>Rebase 的优势就是可以创造更线性的提交历史，这听上去有些难以理解。如果只允许使用 Rebase 的话，代码库的提交历史将会变得异常清晰。</p><h2 id="高级篇"><a href="#高级篇" class="headerlink" title="高级篇"></a>高级篇</h2><h3 id="HEAD"><a href="#HEAD" class="headerlink" title="HEAD"></a>HEAD</h3><p>HEAD 是一个对当前检出记录的符号引用 —— 也就是指向你正在其基础上进行工作的提交记录。</p><p>HEAD 总是指向当前分支上最近一次提交记录。大多数修改提交树的 Git 命令都是从改变 HEAD 的指向开始的。</p><h3 id="强制修改分支位置"><a href="#强制修改分支位置" class="headerlink" title="强制修改分支位置"></a>强制修改分支位置</h3><p>git branch -f main HEAD~3</p><p>使用相对引用最多的就是移动分支。可以直接使用 -f 选项让分支指向另一个提交</p><h3 id="撤销变更"><a href="#撤销变更" class="headerlink" title="撤销变更"></a>撤销变更</h3><p>主要有两种方法用来撤销变更 —— 一是 git reset，还有就是 git revert。</p><p>git reset 通过把分支记录回退几个提交记录来实现撤销改动。你可以将这想象成“改写历史”。</p><p>虽然在你的本地分支中使用 git reset 很方便，但是这种“改写历史”的方法对大家一起使用的远程分支是无效的哦！</p><p>为了撤销更改并分享给别人，我们需要使用 git revert。</p><h2 id="移动提交记录"><a href="#移动提交记录" class="headerlink" title="移动提交记录"></a>移动提交记录</h2><h3 id="Git-Cherry-pick"><a href="#Git-Cherry-pick" class="headerlink" title="Git Cherry-pick"></a>Git Cherry-pick</h3><p>git cherry-pick &lt;提交号&gt;…</p><h2 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h2><h3 id="Git-Describe"><a href="#Git-Describe" class="headerlink" title="Git Describe"></a>Git Describe</h3><p>Git Describe 能帮你在提交历史中移动了多次以后找到方向；</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> git </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> git </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>2022/08/29-2022/09/03组内分享</title>
       <link href="/lsyBlog/2022/09/16/share/2022/august/5-fifthweek/"/>
       <url>/lsyBlog/2022/09/16/share/2022/august/5-fifthweek/</url>
@@ -390,7 +415,7 @@
       <link href="/lsyBlog/2022/07/16/handynotes/1.note/"/>
       <url>/lsyBlog/2022/07/16/handynotes/1.note/</url>
       
-        <content type="html"><![CDATA[<blockquote><p>随手记记，方便回忆</p></blockquote><h3 id="hexo发布静态资源"><a href="#hexo发布静态资源" class="headerlink" title="hexo发布静态资源"></a>hexo发布静态资源</h3><pre class="line-numbers language-vim" data-language="vim"><code class="language-vim">hexo clean <span class="token operator">&amp;&amp;</span> hexo g <span class="token operator">&amp;&amp;</span> hexo <span class="token keyword">d</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><h3 id="hexo生成文件"><a href="#hexo生成文件" class="headerlink" title="hexo生成文件"></a>hexo生成文件</h3><pre class="line-numbers language-vim" data-language="vim"><code class="language-vim">hexo <span class="token keyword">n</span> 文件名<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><h3 id="windows下解压tar-gz文件"><a href="#windows下解压tar-gz文件" class="headerlink" title="windows下解压tar.gz文件"></a>windows下解压tar.gz文件</h3><blockquote><ol><li>搜索Windows PowerShell并打开</li><li>cd 到压缩文件所在文件夹</li><li>然后使用命令 tar -zxvf 要解压的文件名</li></ol></blockquote><h2 id="拉取远端指定分支并在本地新建分支"><a href="#拉取远端指定分支并在本地新建分支" class="headerlink" title="拉取远端指定分支并在本地新建分支"></a>拉取远端指定分支并在本地新建分支</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> checkout -b 本地分支 origin/远程分支<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>]]></content>
+        <content type="html"><![CDATA[<blockquote><p>随手记记，方便回忆</p></blockquote><h3 id="hexo发布静态资源"><a href="#hexo发布静态资源" class="headerlink" title="hexo发布静态资源"></a>hexo发布静态资源</h3><pre class="line-numbers language-vim" data-language="vim"><code class="language-vim">hexo clean <span class="token operator">&amp;&amp;</span> hexo g <span class="token operator">&amp;&amp;</span> hexo <span class="token keyword">d</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><h3 id="hexo生成文件"><a href="#hexo生成文件" class="headerlink" title="hexo生成文件"></a>hexo生成文件</h3><pre class="line-numbers language-vim" data-language="vim"><code class="language-vim">hexo <span class="token keyword">n</span> 文件名<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><h3 id="windows下解压tar-gz文件"><a href="#windows下解压tar-gz文件" class="headerlink" title="windows下解压tar.gz文件"></a>windows下解压tar.gz文件</h3><blockquote><ol><li>搜索Windows PowerShell并打开</li><li>cd 到压缩文件所在文件夹</li><li>然后使用命令 tar -zxvf 要解压的文件名</li></ol></blockquote><h2 id="拉取远端指定分支并在本地新建分支"><a href="#拉取远端指定分支并在本地新建分支" class="headerlink" title="拉取远端指定分支并在本地新建分支"></a>拉取远端指定分支并在本地新建分支</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> checkout -b 本地分支 origin/远程分支<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><h2 id="git修改分支名"><a href="#git修改分支名" class="headerlink" title="git修改分支名"></a>git修改分支名</h2><p>1、修改本地分支名称<br>git branch -m oldBranchName newBranchName</p><p>2、将本地分支的远程分支删除<br>git push origin :oldBranchName</p><p>3、将改名后的本地分支推送到远程，并将本地分支与之关联<br>git push –set-upstream origin newBranchName</p>]]></content>
       
       
       <categories>
